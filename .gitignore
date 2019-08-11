@@ -126,5 +126,9 @@ dmypy.json
 # VSCODE
 .vscode
 
+# Token and credentials
+credentials.json
+token.pickle
+
 hakeandoElSiding (3).ipynb
 hakeandoElSiding.ipynb
