@@ -4,7 +4,7 @@ A script for collecting all the students on a course in SIDING (in all the cours
 
 ## Credits
 
-Thanks to [@lileiva](https://github.com/lileiva) for collaborating and doing all the siding side of the script.
+Thanks to [@lileiva](https://github.com/lileiva) for collaborating and doing all base code for the siding side of the script.
 
 ## Requirements
 
