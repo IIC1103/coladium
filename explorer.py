@@ -51,13 +51,13 @@ class Explorer:
         # return the HTML
         return self.session.get(url).text
 
-
-
     def _parse_row(self, row: Tag):
         '''
         Strips and makes a list for each row given
         '''
-        return list(map(self.clean_tag, row.find_all('td')))
+        clean_row = list(map(self.clean_tag, row.find_all('td')))
+        clean_row.insert(1, '')
+        return clean_row
 
     def _parse_table(self, table):
         '''
