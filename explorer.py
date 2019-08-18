@@ -25,7 +25,10 @@ class Explorer:
         '''
         Clean a bs4 tag and return its content
         '''
-        return tag.get_text().strip()
+        # The clean tag
+        clean = ''.join(filter(lambda s: s != '\'', tag.get_text().strip()))
+
+        return clean
 
     @property
     def sections_ids(self):
@@ -83,4 +86,3 @@ class Explorer:
         table = soup.find('table', filters)
 
         return self._parse_table(table)
-
