@@ -3,6 +3,7 @@ import gspread.exceptions as gspExceptions
 from oauth2client.service_account import ServiceAccountCredentials
 from typing import List
 from time import sleep
+from string import ascii_uppercase
 
 QUOTA = 1  # 1s per request to the api
 
@@ -22,7 +23,7 @@ class Worksheet:
         # Make sure you use the right name here.
         self.sheet = self.client.open_by_key(self.sheet_id).worksheet('Todos')
 
-    def _add_student(self, student: List[str], student_number: str, section):
+    def _add_student(self, student: List[str], student_number: str, section, table_range:str):
         '''
         Adds a student to the worksheet if it isn't already on the sheet.
         Returns a boolean if the user was added.
@@ -38,7 +39,8 @@ class Worksheet:
             # If exception of cell not found is raised
             # Apppend the student
             try:
-                self.sheet.append_row([section] + student)
+                row = [section] + student
+                self.sheet.append_row(row, table_range=table_range)
 
                 # Return true as it was added
                 return True
@@ -59,8 +61,10 @@ class Worksheet:
         Returns the number of students added.
         '''
         added = 0
+        table_range = f"A2:{ascii_uppercase[len(student_list[0])]}{len(student_list) + 2}"
         for student in student_list:
             student_number = student[index]
-            added += int(self._add_student(student, student_number, section))
+
+            added += int(self._add_student(student, student_number, section, table_range))
             sleep(QUOTA)
         return added

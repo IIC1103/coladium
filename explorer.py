@@ -1,7 +1,7 @@
 from requests import Session
 from typing import Dict
 from bs4 import BeautifulSoup, Tag
-
+from re import findall
 
 # local
 from urls import CATALOG, LOGIN, STUDENT_LIST
@@ -39,9 +39,12 @@ class Explorer:
         # Get the HTML of the catalog
         catalog_html = self.session.get(CATALOG).text
         # Split by course code and make a list of matches
-        matches = catalog_html.split(self.course)[:-1]  # Last one has no info
+        catalog_html
+
+        matches = findall(r'(?:id_curso_ic=)\d*', catalog_html)
         # Search the sections in the matches found
-        return [sid[-7:-2] for sid in matches]
+        print(f"Found {len(matches)} sections.")
+        return [sid.split("=")[-1] for sid in matches]
 
     def _section_html(self, *, section_id: str):
         '''

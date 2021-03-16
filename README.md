@@ -9,7 +9,7 @@ Thanks to [@lileiva](https://github.com/lileiva) for collaborating and doing all
 ## Requirements
 
 * Python 3.68+
-* Pipenv
+* Poetry
 * Google clouds api project (with google sheets)
 
 ### Installing
@@ -17,13 +17,13 @@ Thanks to [@lileiva](https://github.com/lileiva) for collaborating and doing all
 Install pipenv.
 
 ```bash
-pip install -U pipenv
+pip install -U poetry
 ```
 
 Install dependencies.
 
 ```bash
-pipenv install --dev
+poetry install
 ```
 
 Set up the environment variables.
@@ -48,6 +48,5 @@ You should also download a credentials file from google cloud platform. For more
 ## Usage
 
 ```bash
-pipenv shell
-python main.py
+poetry run python main.py
 ```

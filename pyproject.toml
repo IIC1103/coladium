@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "coladium"
+version = "1.0.0"
+description = "A script for collecting all the students on a course in SIDING (in all the course's sections) and placing them on a google sheets."
+authors = ["Nicolas Quiroz <naquiroz@uc.cl>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+beautifulsoup4 = "^4.9.1"
+python-dotenv = "^0.13.0"
+requests = "^2.23.0"
+gspread = "^3.6.0"
+oauth2client = "^4.1.3"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.770"
+flake8 = "^3.8.2"
+pylint = "^2.5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
