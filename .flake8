@@ -1,0 +1,11 @@
+# These are the configuration options for Flake8,
+# which will *eventually* live in pyproject.toml.
+# <https://gitlab.com/pycqa/flake8/-/issues/428>
+
+# To have a full listing of the options, please refer to
+# <https://flake8.pycqa.org/en/latest/user/options.html>
+
+[flake8]
+max-line-length = 99
+max-complexity = 6
+exclude = .git,.venv,__pycache__,

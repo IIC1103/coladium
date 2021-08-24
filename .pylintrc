@@ -1,0 +1,37 @@
+[MASTER]
+
+disable =
+    fixme,
+    raise-missing-from,
+    wrong-import-order,
+
+ignore-patterns = .*\.json,.*\.sh,.*\.md,.*\.lock
+
+# I tried to ignore anything that is not a Python file.
+# But my negative lookbehind didn't work: ^.+(?<!\.py)$
+
+[DESIGN]
+
+# Too many instance attributes (default: 7)
+max-attributes = 10
+
+# Too many local variables (default: 15)
+max-locals = 20
+
+# Too many ancestors (default: 7)
+max-parents = 15
+
+# Too few public methods (default: 2)
+min-public-methods = 1
+
+# Too many public methods (default: 20)
+max-public-methods = 25
+
+[FORMAT]
+
+good-names = i,j,k,x,y,z,pk
+
+[SIMILARITIES]
+
+# Ignore imports when computing similarities.
+ignore-imports = yes
